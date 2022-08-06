@@ -6,7 +6,7 @@ def create_app(test_config=None):
         SERCRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path,'flaskr.sqlite'),
     )
-
+    # app.secret_key='dev'
     if test_config is None:
         app.config.from_pyfile('config.py',silent=True)
     else:
@@ -17,9 +17,9 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/')
-    def hello():
-        return "hello world"
+    # @app.route('/')
+    # def hello():
+    #     return "hello world"
 
     from . import db
     db.init_app(app)
