@@ -36,9 +36,14 @@ def create():
             flash(error)
         else:
             db = get_db()
+            # db.execute(
+            #     'INSERT INTO post(title,body,author_id)'
+            #     ' VALUES(?,?,?)',(title,body,g.user('id'))
+            # )
             db.execute(
-                'INSERT INTO post(title,body,author_id)'
-                'VALUES(?,?,?)',(title,body,g.user('id'))
+                'INSERT INTO post (title, body, author_id)'
+                ' VALUES (?, ?, ?)',
+                (title, body, g.user['id'])
             )
             #All insert opeartions need a commit?
             db.commit()

@@ -6,7 +6,7 @@ def create_app(test_config=None):
         SERCRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path,'flaskr.sqlite'),
     )
-    # app.secret_key='dev'
+    app.secret_key='dev'
     if test_config is None:
         app.config.from_pyfile('config.py',silent=True)
     else:
